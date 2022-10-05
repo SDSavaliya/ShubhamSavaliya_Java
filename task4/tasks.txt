@@ -1,0 +1,46 @@
+11. Write a Program to check the given year is leap year or not.
+
+12. Write a Program to check the given number is prime or not prime.
+
+13. Write a program to find the Max number from the given three number
+using Nested If
+
+14. Write a program to find the Max number from the given three number
+using Ternary Operator
+
+15. Write a program to find the Max number from the given three number
+using Nested If
+
+16. Write a program user enter the 5 subjects mark. You have to make a total
+and find the percentage.
+percentage > 75 you have to print “Distinction”
+percentage > 60 and percentage <= 75 you have to print “First class”
+percentage >50 and percentage <= 60 you have to print “Second class”
+percentage > 35 and percentage <= 50 you have to print “Pass class”
+Otherwise print “Fail”
+
+17. Write Program use switch statement. Display Monday to Sunday
+
+18. Write a Program of Addition, Subtraction ,Multiplication and Division using
+Switch case.(Must Be Menu Driven)
+
+19. Write a program of to find out the Area of Triangle, Rectangle and Circle
+using If Condition.(Must Be Menu Driven)
+
+----------------------------------------------------------------------------------
+
+B16. W.A.J.P to Take three numbers from the user and print the greatest number.
+
+B17. Write a Java program that takes the user to provide a single character from the alphabet. Print
+Vowel or Consonant, depending on the user input. If the user input is not a letter (between a and z or
+A and Z), or is a string of length > 1, print an error message.
+
+B18. Write a Java program that takes a year from user and print whether that year is a leap year or
+not.
+
+B19. Write a program in Java to display the first 10 natural numbers using while loop.
+
+B20. Write a program in Java to input 5 numbers from keyboard and find their sum and average using
+for loop.
+
+
