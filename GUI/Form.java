@@ -4,18 +4,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileOutputStream;
 
+import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.text.JTextComponent;
 
-public class Form implements ItemListener,ActionListener
+public class Form extends WindowAdapter implements ItemListener,ActionListener
 {
 	JFrame frame;
 	JLabel l1,l2,l3,l4,l5,l6,l7,l8,l9,l10;
@@ -33,7 +38,12 @@ public class Form implements ItemListener,ActionListener
 	public Form()
 	{
 		frame = new JFrame();
-		
+		frame.addWindowListener(this);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+	
+		frame.setSize(500,500);
+		frame.setLayout(null);
+		frame.setVisible(true);
 		l1 = new JLabel("Registration Form");
 		l1.setBounds(155, 21, 150, 16);
 		
@@ -151,14 +161,40 @@ public class Form implements ItemListener,ActionListener
 		frame.add(d);
 		frame.add(btn);
 		
+		
+		
+//		
+//		frame.addWindowListener(this);
+//		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+//	
+//		frame.setSize(500,500);
+//		frame.setLayout(null);
+//		frame.setVisible(true);
+		
 	}
 	public static void main(String[] args) 
 	{
 		new Form();
-		
-		
 	}
 	@Override
+	public void windowClosing(WindowEvent e) 
+	{
+		// TODO Auto-generated method stub
+		//super.windowClosing(e);
+		
+		int a= JOptionPane.showConfirmDialog(frame, "Are you sure you want to exit?");
+		
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		
+		if(a==JOptionPane.YES_OPTION)
+		{
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		}
+		if(a==JOptionPane.NO_OPTION)
+		{
+			
+		}
+	}
 	public void itemStateChanged(ItemEvent e) 
 	{
 		// TODO Auto-generated method stub
@@ -194,9 +230,14 @@ public class Form implements ItemListener,ActionListener
 		String fname = tf1.getText().toString();
 		String lname = tf2.getText().toString();
 		String email = tf3.getText().toString();
-		//String pass = tf4.getText().toString();
+		String pass  = P1.getText().toString();
+		String course =  a.getSelectedItem().toString();
+		String branch =  b.getSelectedItem().toString();
+		String sem	  =  c.getSelectedItem().toString();
+		String coll	  =  d.getSelectedItem().toString();
 		
-		System.out.println(fname+" "+lname+" "+email);
+		
+		System.out.println(fname+" "+lname+" "+email+" "+pass+" "+course+" "+branch+" "+sem+" "+coll);
 		
 		try 
 		{
@@ -216,13 +257,25 @@ public class Form implements ItemListener,ActionListener
 			fout.write(email1.getBytes());
 			fout.write(email.getBytes());
 			
-//			String pass1 = "\n Your password is : ";
-//			fout.write(pass1.getBytes());
-//			fout.write(pass.getBytes());
-//			
-//			String gender1 = "\n Your gender is : ";
-//			fout.write(gender.getBytes());
-//			fout.write(gender.getBytes());
+			String pass1 = "\n Your password is : ";
+			fout.write(pass1.getBytes());
+			fout.write(pass.getBytes());
+			
+			String course1 = "\n Your course is : ";
+			fout.write(course1.getBytes());
+			fout.write(course.getBytes());
+			
+			String branch1 = "\n Your branch is : ";
+			fout.write(branch1.getBytes());
+			fout.write(branch.getBytes());
+			
+			String sem1 = "\n Your semester is : ";
+			fout.write(sem1.getBytes());
+			fout.write(sem.getBytes());
+			
+			String coll1 = "\n Your college is : ";
+			fout.write(coll1.getBytes());
+			fout.write(coll.getBytes());
 			
 		}
 		catch (Exception e1)
@@ -232,5 +285,6 @@ public class Form implements ItemListener,ActionListener
 		}
 		System.out.println("sucess");
 	}
+
 
 }
